@@ -57,17 +57,17 @@
                                 @if(!Auth::guest())
                                 @if(Auth::user()->role_id == 10 || (Auth::user()->role_id == 3 && count($auth) != 0) || (Auth::user()->id == $set->user_id && Auth::user()->role_id == 2 && count($auth) != 0))
                                     <p>
-                                    {!! Form::open(['action' => ['SetsController@destroy', $set->id], 'method' => 'POST', 'class' => 'float-right']) !!}
+                                    {!! Form::open(['action' => ['SetsControllerDELETE@destroy', $set->id], 'method' => 'POST', 'class' => 'float-right']) !!}
                                         {{ Form::hidden('_method','DELETE') }}
                                         <button type="submit" class="btn btn-danger btn-sm" value="Delete"><i class="fa fa-times" aria-hidden="true"></i> Şterge</button>
                                     {!! Form::close() !!}
                                     @if($hidden == 0 && Auth::user()->role_id == 10)
-                                    {!! Form::open(['action' => ['SetsController@hideCategory', $set->id, 'hide'], 'method' => 'POST', 'class' => 'float-right']) !!}
+                                    {!! Form::open(['action' => ['SetsControllerREAD@hideCategory', $set->id, 'hide'], 'method' => 'POST', 'class' => 'float-right']) !!}
                                         {{ Form::hidden('_method','PUT') }}
                                         <button type="submit" class="btn btn-default btn-sm" value="Hide"><i class="fa fa-eye-slash" aria-hidden="true"></i> Ascunde</button>
                                     {!! Form::close() !!}
                                     @elseif($hidden == 1 && Auth::user()->role_id == 10)
-                                    {!! Form::open(['action' => ['SetsController@hideCategory', $set->id, 'unhide'], 'method' => 'POST', 'class' => 'float-right']) !!}
+                                    {!! Form::open(['action' => ['SetsControllerREAD@hideCategory', $set->id, 'unhide'], 'method' => 'POST', 'class' => 'float-right']) !!}
                                         {{ Form::hidden('_method','PUT') }}
                                         <button type="submit" class="btn btn-default btn-sm" value="Show"><i class="fa fa-eye" aria-hidden="true"></i> Afișare</button>
                                     {!! Form::close() !!}
@@ -109,7 +109,7 @@
                         <div class="card-body">
                             <small>Autor: {{$priv->user->name}}</small>
                             @if(!Auth::guest())
-                                {!! Form::open(['action' => ['SetsController@destroy', $priv->id], 'method' => 'POST', 'class' => 'float-right']) !!}
+                                {!! Form::open(['action' => ['SetsControllerDELETE@destroy', $priv->id], 'method' => 'POST', 'class' => 'float-right']) !!}
                                     {{ Form::hidden('_method','DELETE') }}
                                     {{ Form::submit('Şterge', ['class' => 'btn btn-danger btn-sm']) }}
                                 {!! Form::close() !!}

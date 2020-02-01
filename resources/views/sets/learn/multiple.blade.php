@@ -35,7 +35,7 @@
         <h1>Test de cunostinte: {{ $set->name }}</h1>
         <hr>
         <div class="card">
-            {!! Form::open(['action' => 'LearnController@result', 'method' => 'POST', 'name' => 'form']) !!}
+            {!! Form::open(['action' => 'LearnControllerShowResult@result', 'method' => 'POST', 'name' => 'form']) !!}
             <div class="card-body">
                 <div class="progress">
                     <div id="bar" class="progress-bar" role="progressbar" style="width:0%"></div>

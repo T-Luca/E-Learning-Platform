@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content">
         <div class="report-details">
-            Created at 2019-12-15 12:42:32        , with PHPMetrics v2.4.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2020-02-01 17:09:16        , with PHPMetrics v2.5.0 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
 
@@ -92,7 +92,7 @@
                             <path d="M0 0h24v24H0z" fill="none"/>
                             <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
                         </svg>
-                        Violations (8)
+                        Violations (3)
                     </a>
                 </li>
                                 <li>
@@ -244,7 +244,7 @@
         "relations": []
     },
     {
-        "name": "\\Illuminate\\Database\\Eloquent\\Model",
+        "name": "\\Eloquent",
         "size": 3000,
         "relations": []
     },
@@ -276,8 +276,7 @@
         "size": 3000,
         "relations": [
             "\\Illuminate\\Foundation\\Exceptions\\Handler",
-            "\\Exception",
-            "\\parent"
+            "\\Exception"
         ]
     },
     {
@@ -287,11 +286,6 @@
     },
     {
         "name": "\\Exception",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\parent",
         "size": 3000,
         "relations": []
     },
@@ -319,7 +313,7 @@
         "name": "\\App\\User",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Foundation\\Auth\\User"
+            "\\Eloquent"
         ]
     },
     {
@@ -384,17 +378,27 @@
         "name": "\\App\\Subcategory",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Database\\Eloquent\\Model"
+            "\\Eloquent"
         ]
     },
     {
-        "name": "\\App\\Http\\Controllers\\CategoriesController",
+        "name": "\\App\\Http\\Controllers\\CategoriesControllerCR",
         "size": 3000,
         "relations": [
             "\\App\\Http\\Controllers\\Controller",
             "\\App\\Category",
             "\\App\\Subcategory",
             "\\Illuminate\\Support\\Facades\\Auth",
+            "\\Illuminate\\Http\\Request"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\CategoriesControllerUD",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\Illuminate\\Support\\Facades\\Auth",
+            "\\App\\Category",
             "\\Illuminate\\Http\\Request"
         ]
     },
@@ -425,7 +429,16 @@
         "name": "\\App\\Set",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Database\\Eloquent\\Model"
+            "\\Eloquent"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\LearnControllerShowResult",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\Illuminate\\Http\\Request",
+            "\\App\\Set"
         ]
     },
     {
@@ -449,22 +462,51 @@
         "name": "\\App\\Result",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Database\\Eloquent\\Model"
+            "\\Eloquent"
         ]
     },
     {
-        "name": "\\App\\Http\\Controllers\\SetsController",
+        "name": "\\App\\Http\\Controllers\\SetsControllerCREATE",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\Illuminate\\Http\\Request",
+            "\\App\\Set",
+            "\\Illuminate\\Support\\Facades\\Auth"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\SetsControllerDELETE",
         "size": 3000,
         "relations": [
             "\\App\\Http\\Controllers\\Controller",
             "\\App\\Set",
             "\\Illuminate\\Support\\Facades\\Auth",
-            "\\Illuminate\\Http\\Request",
             "\\App\\Authorization"
         ]
     },
     {
-        "name": "\\App\\Http\\Controllers\\SubcategoriesController",
+        "name": "\\App\\Http\\Controllers\\SetsControllerREAD",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\App\\Set",
+            "\\Illuminate\\Support\\Facades\\Auth"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\SetsControllerUPDATE",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\App\\Set",
+            "\\Illuminate\\Support\\Facades\\Auth",
+            "\\App\\Authorization",
+            "\\Illuminate\\Http\\Request"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\SubcategoriesControllerCR",
         "size": 3000,
         "relations": [
             "\\App\\Http\\Controllers\\Controller",
@@ -472,6 +514,16 @@
             "\\App\\Set",
             "\\Illuminate\\Support\\Facades\\Auth",
             "\\App\\Authorization",
+            "\\Illuminate\\Http\\Request"
+        ]
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\SubcategoriesControllerUD",
+        "size": 3000,
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller",
+            "\\Illuminate\\Support\\Facades\\Auth",
+            "\\App\\Subcategory",
             "\\Illuminate\\Http\\Request"
         ]
     },
@@ -552,7 +604,7 @@
         "name": "\\App\\Language",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Database\\Eloquent\\Model"
+            "\\Eloquent"
         ]
     },
     {
@@ -602,8 +654,7 @@
         "name": "\\App\\Providers\\EventServiceProvider",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider",
-            "\\parent"
+            "\\Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider"
         ]
     },
     {
@@ -616,7 +667,6 @@
         "size": 3000,
         "relations": [
             "\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
-            "\\parent",
             "\\Illuminate\\Support\\Facades\\Route"
         ]
     },
@@ -634,13 +684,8 @@
         "name": "\\App\\Role",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Database\\Eloquent\\Model"
+            "\\Eloquent"
         ]
-    },
-    {
-        "name": "\\Illuminate\\Foundation\\Auth\\User",
-        "size": 3000,
-        "relations": []
     },
     {
         "name": "\\CreateUsersTable",

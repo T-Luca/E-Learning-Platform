@@ -3,7 +3,7 @@
 @section('content')
     <h1>Adăugați o nouă categorie</h1>
     <hr>
-    {!! Form::open(['action' => 'CategoriesController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'CategoriesControllerCR@store', 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('name','Numele categoriei')}}
             {{Form::text('name','', ['class' => 'form-control', 'placeholder' => 'Nume'])}}

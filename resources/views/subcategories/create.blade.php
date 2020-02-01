@@ -3,7 +3,7 @@
 @section('content')
     <h1>Adăugați o nouă subcategorie</h1>
     <hr>
-    {!! Form::open(['action' => 'SubcategoriesController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'SubcategoriesControllerCR@store', 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('name','Numele subcategoriei')}}
             {{Form::text('name','', ['class' => 'form-control', 'placeholder' => 'Nume'])}}

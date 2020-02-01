@@ -31,16 +31,16 @@
                                 <h6>{{$category->description}}</h6>
                                 @if(!Auth::guest() && Auth::user()->role_id == 10)
                                     <p>
-                                    {!! Form::open(['action' => ['CategoriesController@destroy', $category->id], 'method' => 'POST', 'class' => 'float-right']) !!}
+                                    {!! Form::open(['action' => ['CategoriesControllerUD@destroy', $category->id], 'method' => 'POST', 'class' => 'float-right']) !!}
                                         {{ Form::hidden('_method','DELETE') }}
                                         <button type="submit" class="btn btn-danger btn-sm" value="Delete"><i class="fa fa-times" aria-hidden="true"></i> Șterge</button>
                                     {!! Form::close() !!}
                                     @if($hidden == 0)
-                                    {!! Form::open(['action' => ['CategoriesController@hideCategory', $category->id, 'hide'], 'method' => 'POST', 'class' => 'float-right']) !!}
+                                    {!! Form::open(['action' => ['CategoriesControllerCR@hideCategory', $category->id, 'hide'], 'method' => 'POST', 'class' => 'float-right']) !!}
                                         {{ Form::hidden('_method','PUT') }}
                                         <button type="submit" class="btn btn-default btn-sm" value="Hide"><i class="fa fa-eye-slash" aria-hidden="true"></i> Ascunde</button>
                                     @else
-                                    {!! Form::open(['action' => ['CategoriesController@hideCategory', $category->id, 'unhide'], 'method' => 'POST', 'class' => 'float-right']) !!}
+                                    {!! Form::open(['action' => ['CategoriesControllerCR@hideCategory', $category->id, 'unhide'], 'method' => 'POST', 'class' => 'float-right']) !!}
                                         {{ Form::hidden('_method','PUT') }}
                                         <button type="submit" class="btn btn-default btn-sm" value="Show"><i class="fa fa-eye" aria-hidden="true"></i> Afișare</button>
                                     @endif

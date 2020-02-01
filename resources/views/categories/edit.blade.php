@@ -3,7 +3,7 @@
 @section('content')
     <h1>Editarea categoriilor</h1>
     <hr>
-    {!! Form::open(['action' => ['CategoriesController@update', $category->id], 'method' => 'POST']) !!}
+    {!! Form::open(['action' => ['CategoriesControllerUD@update', $category->id], 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('name','Numele categoriei')}}
             {{Form::text('name',$category->name, ['class' => 'form-control', 'placeholder' => 'Nume'])}}

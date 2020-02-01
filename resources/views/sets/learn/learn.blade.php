@@ -39,7 +39,7 @@
         @endif
         <hr>
         <div class="card">
-            {!! Form::open(['action' => 'LearnController@result', 'method' => 'POST', 'name' => 'form']) !!}
+            {!! Form::open(['action' => 'LearnControllerShowResult@result', 'method' => 'POST', 'name' => 'form']) !!}
             <div class="card-body">
                 @for($i = 0; $i<count($array); $i++)
                     <div id="container{{$i}}">

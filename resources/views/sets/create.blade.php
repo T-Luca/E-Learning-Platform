@@ -5,7 +5,7 @@
 @section('content')
     <h1>Adăugați un set nou</h1>
     <hr>
-    {!! Form::open(['action' => 'SetsController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'SetsControllerCREATE@store', 'method' => 'POST']) !!}
     <div id="container">
         <div class="row">
             <div class="col-3">

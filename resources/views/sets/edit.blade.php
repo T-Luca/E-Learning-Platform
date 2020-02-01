@@ -6,7 +6,7 @@
     <h1>Editați setul</h1>
     <hr>
     <?php $split = explode(';', $set->set); ?>
-    {!! Form::open(['action' => ['SetsController@update', $set->id], 'method' => 'POST']) !!}
+    {!! Form::open(['action' => ['SetsControllerUPDATE@update', $set->id], 'method' => 'POST']) !!}
     <div id="container">
         <div class="row">
             <div class="col-3">

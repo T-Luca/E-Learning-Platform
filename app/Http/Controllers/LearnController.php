@@ -13,7 +13,11 @@ class LearnController extends Controller
         $this->middleware('auth', ['except' => ['mode', 'result']]);
     }
 
-    public function mode(Request $request){
+    /**
+     * Mode 1 learning- basic
+     *
+     */
+    public function mode1(Request $request){
         $id = $request->input('current_id');
         $lang = $request->input('lang');
         $set = Set::find($id);
@@ -21,10 +25,36 @@ class LearnController extends Controller
             if(isset($_POST['learn1'])){
                 return view('sets.learn.learn')->with('set', $set)->with('lang',$lang)->with('test',0);
             }
-            else if(isset($_POST['learnm'])){
+        }
+        else return redirect()->back()->with('error', 'Setul nu există');
+    }
+
+    /**
+     * Mode 2 learning- multiple
+     *
+     */
+    public function mode2(Request $request){
+        $id = $request->input('current_id');
+        $lang = $request->input('lang');
+        $set = Set::find($id);
+        if($set->hidden == 0 || (!Auth::guest() && $set->hidden == 1 && Auth::user()->role_id == 10) || (!Auth::guest() && $set->hidden == 2 && $set->user_id == Auth::user()->id)){
+            if(isset($_POST['learnm'])){
                 return view('sets.learn.multiple')->with('set', $set)->with('lang',$lang)->with('test',0);
             }
-            else if(isset($_POST['flashcards'])){
+        }
+        else return redirect()->back()->with('error', 'Setul nu există');
+    }
+
+    /**
+     * Mode 3&4 learning- flashcards & final test
+     *
+     */
+    public function mode3(Request $request){
+        $id = $request->input('current_id');
+        $lang = $request->input('lang');
+        $set = Set::find($id);
+        if($set->hidden == 0 || (!Auth::guest() && $set->hidden == 1 && Auth::user()->role_id == 10) || (!Auth::guest() && $set->hidden == 2 && $set->user_id == Auth::user()->id)){
+            if(isset($_POST['flashcards'])){
                 return view('sets.learn.flashcards')->with('set', $set)->with('lang',$lang)->with('test',0);
             }
             else{
@@ -33,14 +63,4 @@ class LearnController extends Controller
         }
         else return redirect()->back()->with('error', 'Setul nu există');
     }
-
-    public function result(Request $request){
-        $set = Set::find($request->input('set_id'));
-        $result = $request->input('result');
-        $NoW = $request->input('NoW');
-        $isTest = $request->input('isTest');
-        
-        return view('sets.learn.result')->with('result', $result)->with('NoW', $NoW)->with('isTest', $isTest)->with('set', $set);
-    }
-
 }
